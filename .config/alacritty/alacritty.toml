@@ -1,0 +1,25 @@
+[font]
+size = 11.0
+
+[font.normal]
+family = "JetBrainsMono Nerd Font Mono"
+style = "Regular"
+[window]
+opacity = 0.78
+blur = true
+padding = { x = 10, y = 10 }
+
+[cursor]
+style = { shape = "Beam", blinking = "Always" }
+[colors.primary]
+background = "#000000"
+foreground = "#bbbbbb"
+[colors.normal]
+black   = "#000000"
+red     = "#ff5555"
+green   = "#00ff9c"
+yellow  = "#f1fa8c"
+blue    = "#bd93f9"
+magenta = "#ff79c6"
+cyan    = "#8be9fd"
+white   = "#bbbbbb"
