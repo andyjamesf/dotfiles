@@ -70,6 +70,30 @@ cp ~/dotfiles/.tmux.conf ~/
 ```
 
 ---
+# 📝 Nano (configuração)
+
+Configuração do editor **nano**.
+
+---
+
+## 📦 Instalar
+
+```bash
+sudo pacman -S --needed nano
+```
+
+---
+
+## 📥 Instalar configuração
+
+```bash
+cp ~/dotfiles/.nanorc ~/
+```
+
+---
+
+
+---
 
 # ⚡ Instalação completa
 
