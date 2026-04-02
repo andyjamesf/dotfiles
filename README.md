@@ -194,6 +194,46 @@ cp -r ~/config-backup ~/dotfiles/backup
 ```
 
 ---
+# 📦 Instalar pacotes
+
+Instala todas as aplicações necessárias usando os ficheiros exportados.
+
+---
+
+## 🧠 Requisitos
+
+Precisas de ter `yay` (AUR helper).
+
+---
+
+## 🔧 Instalar yay (se não tiver)
+
+```bash
+sudo pacman -S --needed base-devel git
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+```
+
+---
+
+## 🚀 Instalar pacotes
+
+```bash
+sudo pacman -S --needed - < pkglist.txt
+yay -S --needed - < aurlist.txt
+```
+
+---
+
+## ⚠️ Notas
+
+* Executar dentro da pasta `dotfiles`
+* Instala apenas o que falta (`--needed`)
+* Pode demorar dependendo dos pacotes AUR
+* Seguro para correr várias vezes
+
+---
 
 
 # 💀 Autor
