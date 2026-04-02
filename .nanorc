@@ -1,0 +1,43 @@
+
+
+## ====== CORE ======
+set autoindent
+set tabsize 4
+set tabstospaces
+set linenumbers
+#set smooth
+set softwrap
+set smarthome
+set mouse
+set historylog
+set regexp
+set minibar
+set constantshow
+set indicator
+
+## ====== UI / VISUAL ======
+#set background dark
+set titlecolor white,black
+set statuscolor black,green
+set keycolor white,black
+set functioncolor white,black
+set numbercolor brightyellow
+#set selectedcolor white,magenta
+#set cursorcolor red
+
+## ====== COMPORTAMENTO ======
+#set suspend
+set quickblank
+set trimblanks
+
+
+## ====== MELHOR NAVEGAÇÃO ======
+set jumpyscrolling
+set wordbounds
+
+## ====== SINTAX HIGHLIGHT ======
+include "/usr/share/nano/*.nanorc"
+
+## ====== EXTRA (OPCIONAL) ======
+# remove barra de ajuda (fica mais clean)
+#set nohelp
