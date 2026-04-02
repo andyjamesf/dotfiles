@@ -1,0 +1,101 @@
+@import "../omarchy/current/theme/waybar.css";
+
+/* 1. RESET GLOBAL */
+/* Retiramos o background daqui para não criar uma barra sólida */
+* {
+    border: none;
+    font-family: 'JetBrainsMono Nerd Font Mono';
+    font-size: 14px;
+    min-height: 0;
+}
+
+/* 2. BARRA PRINCIPAL TRANSPARENTE */
+window#waybar {
+    background: transparent;
+}
+
+/* 3. O EFEITO "PÍLULA" PARA TODOS OS MÓDULOS */
+/* Isto aplica o fundo, cantos redondos e margens a cada bloco isolado */
+.modules-left > widget > *,
+.modules-center > widget > *,
+.modules-right > widget > * {
+    background-color: @background;
+    color: @foreground;
+    border-radius: 12px;       /* Cantos bem redondos */
+    padding: 2px 12px;         /* Espaço interno para o texto respirar */
+    margin: 4px 6px;           /* Espaço externo (afasta os blocos uns dos outros e do topo) */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3); /* Sombra suave para dar profundidade */
+}
+
+/* 4. WORKSPACES (Ecrãs Virtuais) */
+#workspaces {
+    padding: 0 4px;
+}
+
+#workspaces button {
+    color: @foreground;
+    background: transparent;
+    border-radius: 8px;
+    padding: 0 6px;
+    margin: 2px;
+    transition: all 0.2s ease; /* Animação suave ao passar o rato */
+}
+
+/* Ecrã que está a ser usado no momento */
+#workspaces button.active {
+    background-color: @foreground;
+    color: @background;
+    font-weight: bold;
+}
+
+/* Efeito ao passar o rato por cima */
+#workspaces button:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+#workspaces button.empty {
+    opacity: 0.5;
+}
+
+/* 5. CORES DE ALERTA E TEMPERATURA */
+#cpu.warning, #memory.warning {
+    color: #ffcc00; /* Amarelo */
+}
+
+#cpu.critical, #memory.critical, #temperature.critical {
+    color: #ff3333; /* Vermelho */
+    font-weight: bold;
+}
+
+/* 6. BATERIA (Com efeito piscar quando crítica!) */
+#battery.warning {
+    color: #ffcc00;
+}
+
+#battery.critical:not(.charging) {
+    color: #ff3333;
+    animation: blink 1s linear infinite; /* Pisca 1x por segundo */
+}
+
+@keyframes blink {
+    50% { color: @background; background-color: #ff3333; }
+}
+
+/* 7. AJUSTES AOS MÓDULOS NATIVOS DO OMARCHY */
+#custom-update { font-size: 11px; }
+
+#custom-screenrecording-indicator.active,
+#custom-idle-indicator.active,
+#custom-notification-silencing-indicator.active,
+#custom-voxtype.recording {
+    color: #a55555;
+}
+
+/* Tooltips (as caixas flutuantes que aparecem quando paras o rato por cima) */
+tooltip {
+    background-color: @background;
+    color: @foreground;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+}

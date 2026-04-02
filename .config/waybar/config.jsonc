@@ -1,0 +1,106 @@
+{
+   "layer": "top",
+   "position": "top",
+
+   "modules-left": [
+     "hyprland/workspaces",
+     "tray"
+   ],
+
+   "modules-center": [
+     "clock",
+     "custom/clipboard"
+
+   ],
+
+   "modules-right": [
+     "network",
+     "cpu",
+     "memory",
+     "temperature",
+     "battery",
+     "power-profiles-daemon","custom/swaync"
+     
+   ],
+
+   "clock": {
+     "format": " {:%H:%M   %d-%m}",
+     "tooltip-format": "<big>{:%A, %d %B %Y}</big>\n<tt><small>{calendar}</small></tt>",
+     "on-click": "gnome-calendar"
+   },
+
+   "cpu": {
+     "interval": 5,
+     "format": " {usage}%",
+     "on-click": "alacritty --class waybar_popup -e btop"
+   },
+
+   "memory": {
+     "interval": 5,
+     "format": "󰍛 {}%"
+   },
+
+   "temperature": {
+     "critical-threshold": 80,
+     "format": " {temperatureC}°C"
+   },
+
+   "network": {
+     "format-wifi": " {signalStrength}%",
+     "format-ethernet": "󰈀",
+     "format-disconnected": "󰖪",
+     "on-click": "iwgtk"
+   },
+   "custom/clipboard": {
+     "format": "📋",
+     "tooltip": true,
+     "tooltip-format": "Área de Transferência",
+     "on-click": "cliphist list | wofi --dmenu | cliphist decode | wl-copy"
+   },
+
+   "battery": {
+     "states": {
+       "warning": 30,
+       "critical": 15
+     },
+     "format": "{capacity}% {icon} ({time})",
+     "format-charging": "⚡ {capacity}% ({time})",
+     "format-plugged": "",
+     "format-icons": [
+       "",
+       "",
+       "",
+       "",
+       ""
+     ],
+     "on-click": "bash -c 'mode=$(echo -e \"power-saver\\nbalanced\\nperformance\" | wofi --show dmenu --prompt \"Modo de Energia:\"); [ -n \"$mode\" ] && powerprofilesctl set \"$mode\"'"
+   },
+   "custom/swaync": {
+  "format": "",
+  "on-click": "swaync-client -t -sw",
+  "tooltip": false
+},
+
+   "power-profiles-daemon": {
+     "format": "{icon}",
+     "tooltip": true,
+     "format-icons": {
+       "performance": "",
+       "balanced": "",
+       "power-saver": ""
+     }
+   }
+}
+
+# Regras para os Pop-ups do Waybar
+windowrulev2 = float, class:^(waybar_popup)$
+windowrulev2 = size 800 500, class:^(waybar_popup)$
+windowrulev2 = center, class:^(waybar_popup)$
+
+windowrulev2 = float, class:^(org.gnome.Calendar)$
+windowrulev2 = size 800 600, class:^(org.gnome.Calendar)$
+windowrulev2 = center, class:^(org.gnome.Calendar)$
+
+windowrulev2 = float, class:^(iwgtk)$
+windowrulev2 = size 400 500, class:^(iwgtk)$
+windowrulev2 = center, class:^(iwgtk)$

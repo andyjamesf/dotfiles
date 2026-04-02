@@ -1,0 +1,75 @@
+{
+  "layer": "top",
+  "position": "top",
+
+  "modules-left": [
+    "hyprland/workspaces"
+  ],
+
+  "modules-center": [
+    "clock"
+  ],
+
+  "modules-right": [
+    "network",
+    "cpu",
+    "memory",
+    "temperature",
+    "battery",
+    "power-profiles-daemon"
+  ],
+
+  "clock": {
+    "format": " {:%H:%M   %d-%m}",
+    "tooltip-format": "<big>{:%A, %d %B %Y}</big>\n<tt><small>{calendar}</small></tt>",
+    "on-click": "alacritty -e cal"
+  },
+
+  "cpu": {
+    "interval": 5,
+    "format": " {usage}%"
+  },
+
+  "memory": {
+    "interval": 5,
+    "format": "󰍛 {}%"
+  },
+
+  "temperature": {
+    "critical-threshold": 80,
+    "format": " {temperatureC}°C"
+  },
+
+  "network": {
+    "format-wifi": " {signalStrength}%",
+    "format-ethernet": "󰈀",
+    "format-disconnected": "󰖪"
+  },
+
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{capacity}% {icon}",
+    "format-charging": "⚡ {capacity}%",
+    "format-plugged": "",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+
+  "power-profiles-daemon": {
+    "format": "{icon}",
+    "tooltip": true,
+    "format-icons": {
+      "performance": "",
+      "balanced": "",
+      "power-saver"i: ""
+    }
+  }
+}
